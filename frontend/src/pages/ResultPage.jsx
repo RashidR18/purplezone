@@ -32,15 +32,8 @@ const ResultPage = () => {
       justifyContent: 'center',
       padding: '80px 24px 24px', // Increased top padding to clear fixed navbar
     }}>
-      {/* Gray centered card — narrower width, taller height to match screenshot */}
-      <div style={{
-        backgroundColor: '#6b7280',
-        borderRadius: '16px',
-        padding: '60px 44px 60px',
-        width: '100%',
-        maxWidth: '520px',
-        minHeight: '540px',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+      {/* Gray centered card — same size as TestPage */}
+      <div className="card test-card" style={{
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -50,7 +43,7 @@ const ResultPage = () => {
         <div style={{
           fontSize: '20px',
           fontWeight: '700',
-          marginBottom: '44px',
+          marginBottom: '30px',
           color: '#ffffff',
           fontFamily: 'Inter, sans-serif',
         }}>
@@ -60,7 +53,7 @@ const ResultPage = () => {
 
         {/* Answer rows */}
         {result.answers.map((answer, index) => (
-          <div key={index} style={{ marginBottom: '32px' }}>
+          <div key={index} style={{ marginBottom: '20px' }}>
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -93,7 +86,7 @@ const ResultPage = () => {
         {/* Score line */}
         <div style={{
           textAlign: 'center',
-          marginTop: '40px',
+          marginTop: '24px',
           fontSize: '16px',
           fontWeight: '700',
           color: '#ffffff',

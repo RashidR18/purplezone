@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const initialSentences = [
-  { id: 1, text: "She don't know where is the keys to the house, and yesterday she have left it on a table near to the door." },
-  { id: 2, text: "The team have worked very hard on there project, but the manager didn't gave them no feedback since two week." },
-  { id: 3, text: "He goed to the market yesterday and buyed some apple and potato, but forget to brought his wallet with him." }
+  { id: 1, text: "i is rashid" },
+  { id: 2, text: "she beautiful" },
+  { id: 3, text: "he go home" }
 ];
 
 const EditPage = () => {
@@ -16,10 +16,10 @@ const EditPage = () => {
   useEffect(() => {
     const sentenceId = parseInt(id);
     const sentence = initialSentences.find(s => s.id === sentenceId);
-    
+
     if (sentence) {
       setOriginal(sentence.text);
-      
+
       const storedAnswers = localStorage.getItem('testAnswers');
       if (storedAnswers) {
         const parsed = JSON.parse(storedAnswers);
@@ -41,14 +41,14 @@ const EditPage = () => {
     const sentenceId = parseInt(id);
     let storedAnswers = localStorage.getItem('testAnswers');
     storedAnswers = storedAnswers ? JSON.parse(storedAnswers) : [];
-    
+
     const existingIndex = storedAnswers.findIndex(s => s.id === sentenceId);
     if (existingIndex !== -1) {
       storedAnswers[existingIndex].correctedText = correctedText;
     } else {
       storedAnswers.push({ id: sentenceId, correctedText });
     }
-    
+
     localStorage.setItem('testAnswers', JSON.stringify(storedAnswers));
     navigate('/test');
   };
@@ -60,7 +60,7 @@ const EditPage = () => {
   return (
     <div className="card">
       <div className="header-title">Edit Sentence</div>
-      
+
       <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#fca5a5', borderRadius: '8px', lineHeight: '1.5' }}>
         <strong>Original:</strong><br />
         {original}
